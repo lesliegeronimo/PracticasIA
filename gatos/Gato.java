@@ -26,8 +26,7 @@ public class Gato {
     /**
      * Constructor del estado inicial.
      */
-    Gato() {
-    }
+    Gato() {}
 
     /**
      * Constructor que copia el tablero de otro gato y el número de tiradas
@@ -58,22 +57,23 @@ public class Gato {
      * 
      * Esta función debe ser lo más eficiente posible para que la generación del árbol no sea demasiado lenta.
      */
-    void hayGanador(int x, int y, int marca) {
+    private void hayGanador(int ren, int col, int marca) {
         // Horizontal
-        if (tablero[y][(x + 1) % 3] == marca && tablero[y][(x + 2) % 3] == marca) {
+        if (tablero[ren][(col + 1) % 3] == marca && tablero[ren][(col + 2) % 3] == marca) {
             hayGanador = true;
             return;
         }
         // Vertical
-        if (tablero[(y + 1) % 3][x] == marca && tablero[(y + 2) % 3][x] == marca) {
+        if (tablero[(ren + 1) % 3][col] == marca && tablero[(ren + 2) % 3][col] == marca) {
             hayGanador = true;
             return;
         }
         // Diagonal
-        if ((x == 1 && y != 1) || (y == 1 && x != 1)) {
+        if ((ren != 1 && col == 1) || (ren == 1 && col != 1)) {
+			hayGanador = false;  // No debiera ser necesaria.
             return; // No pueden hacer diagonal
         }      // Centro y esquinas
-        if (x == 1 && y == 1) {
+        if (col == 1 && ren == 1) {
             // Diagonal \
             if (tablero[0][0] == marca && tablero[2][2] == marca) {
                 hayGanador = true;
@@ -83,15 +83,15 @@ public class Gato {
                 hayGanador = true;
                 return;
             }
-        } else if (x == y) {
+        } else if (ren == col) {
             // Diagonal \
-            if (tablero[(y + 1) % 3][(x + 1) % 3] == marca && tablero[(y + 2) % 3][(x + 2) % 3] == marca) {
+            if (tablero[(ren + 1) % 3][(col + 1) % 3] == marca && tablero[(ren + 2) % 3][(col + 2) % 3] == marca) {
                 hayGanador = true;
                 return;
             }
         } else {
             // Diagonal /
-            if (tablero[(y + 2) % 3][(x + 1) % 3] == marca && tablero[(y + 1) % 3][(x + 2) % 3] == marca) {
+            if (tablero[(ren + 2) % 3][(col + 1) % 3] == marca && tablero[(ren + 1) % 3][(col + 2) % 3] == marca) {
                 hayGanador = true;
                 return;
             }
@@ -103,11 +103,11 @@ public class Gato {
      * Asume que la casilla está libre.
      * Coloca la marca correspondiente, verifica y asigna la variable si hay un ganador.
      */
-    void tiraEn(int x, int y) {
+    private void tiraEn(int ren, int col) {
         tiradas++;
         int marca = (jugador1) ? MARCA1 : MARCA2;
-        tablero[y][x] = marca;
-        hayGanador(x, y, marca);
+        tablero[ren][col] = marca;
+        hayGanador(ren, col, marca);
     }
 
     /**

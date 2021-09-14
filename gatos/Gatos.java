@@ -109,15 +109,15 @@ public class Gatos extends PApplet {
 
         if (g.hayGanador) {
             if (g.jugador1) {
-                fill(255, 0, 0);
+                fill(255, 50, 50);
                 stroke(155, 0, 0);
             } else {
                 fill(0, 200, 0);
                 stroke(0, 100, 0);
             }
         } else if (g.tiradas == 9) {
-            fill(10, 10, 10);
-            stroke(10, 10, 10);
+            fill(160, 160, 160);
+            stroke(150, 150, 150);
         } else {
             fill(50);
             stroke(0);
