@@ -29,7 +29,7 @@ public class Gatos extends PApplet {
     private boolean genera = false;            // Bandera para solicitar la expansión del siguiente nivel.
 
     private Gato gatoRaiz;                     // Estado inicial
-    private LinkedList<Gato> listaAbierta = new LinkedList();  // Nodos en el nivel más profundo que no han sido expandidos.
+    private LinkedList<Gato> listaAbierta = new LinkedList<>();  // Nodos en el nivel más profundo que no han sido expandidos.
 
     @Override
     public void settings() {
@@ -68,7 +68,7 @@ public class Gatos extends PApplet {
             clear();
             background(200);
             Gato actual;
-            LinkedList<Gato> listaGatos = new LinkedList();
+            LinkedList<Gato> listaGatos = new LinkedList<>();
             listaGatos.add(gatoRaiz);
             int profundidadActual = 0;
             while (!listaGatos.isEmpty()) {
