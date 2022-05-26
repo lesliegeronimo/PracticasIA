@@ -1,1 +1,1 @@
-# Práctica 11 - Algoritmos genéticos
+# Práctica 12 - Algoritmos genéticos
