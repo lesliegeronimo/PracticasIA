@@ -155,7 +155,7 @@ public class Gato {
     /**
      * Al reflejar el gato sobre la diagonal \ son iguales (ie traspuesta)
      */
-    boolean esSimetricoDiagonalInvertida(Gato otro) {
+    boolean esSimétricoDiagonalInvertida(Gato otro) {
         
         // TODO
         
@@ -165,7 +165,7 @@ public class Gato {
     /**
      * Al reflejar el gato sobre la diagonal / son iguales (ie traspuesta)
      */
-    boolean esSimetricoDiagonal(Gato otro) {
+    boolean esSimétricoDiagonal(Gato otro) {
         
         // TODO
         
@@ -175,7 +175,7 @@ public class Gato {
     /**
      * Al reflejar el otro gato sobre la vertical son iguales
      */
-    boolean esSimetricoVerticalmente(Gato otro) {
+    boolean esSimétricoVerticalmente(Gato otro) {
         
         // TODO
         
@@ -185,7 +185,7 @@ public class Gato {
     /**
      * Al reflejar el otro gato sobre la horizontal son iguales
      */
-    boolean esSimetricoHorizontalmente(Gato otro) {
+    boolean esSimétricoHorizontalmente(Gato otro) {
         
         // TODO
         
@@ -195,7 +195,7 @@ public class Gato {
     /**
      * Rota el otro tablero 90Â° en la dirección de las manecillas del reloj.
      */
-    boolean esSimetrico90(Gato otro) {
+    boolean esSimétrico90(Gato otro) {
         
         // TODO
         
@@ -205,7 +205,7 @@ public class Gato {
     /**
      * Rota el otro tablero 180Â° en la dirección de las manecillas del reloj.
      */
-    boolean esSimetrico180(Gato otro) {
+    boolean esSimétrico180(Gato otro) {
         
         // TODO
         
@@ -215,7 +215,7 @@ public class Gato {
     /**
      * Rota el otro tablero 270Â° en la dirección de las manecillas del reloj.
      */
-    boolean esSimetrico270(Gato otro) {
+    boolean esSimétrico270(Gato otro) {
         
         // TODO
         
@@ -233,25 +233,25 @@ public class Gato {
             return true;
         }
 
-        if (esSimetricoDiagonalInvertida(otro)) {
+        if (esSimétricoDiagonalInvertida(otro)) {
             return true;
         }
-        if (esSimetricoDiagonal(otro)) {
+        if (esSimétricoDiagonal(otro)) {
             return true;
         }
-        if (esSimetricoVerticalmente(otro)) {
+        if (esSimétricoVerticalmente(otro)) {
             return true;
         }
-        if (esSimetricoHorizontalmente(otro)) {
+        if (esSimétricoHorizontalmente(otro)) {
             return true;
         }
-        if (esSimetrico90(otro)) {
+        if (esSimétrico90(otro)) {
             return true;
         }
-        if (esSimetrico180(otro)) {
+        if (esSimétrico180(otro)) {
             return true;
         }
-        if (esSimetrico270(otro)) {
+        if (esSimétrico270(otro)) {
             return true; // No redujo el diámetro máximo al agregarlo
         }
         return false;
