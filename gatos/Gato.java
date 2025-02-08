@@ -1,5 +1,6 @@
 /*
  * No redistribuir.
+ * Geronimo Soto Leslie - 320032848
  */
 package gatos;
 
@@ -127,7 +128,16 @@ public class Gato {
         }
         sucesores = new LinkedList<>();
         
-        // TODO: Tu código aquí.
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] == 0) { // Casilla vacía
+                    Gato nuevoEstado = new Gato(this);
+                    nuevoEstado.jugador1 = !this.jugador1; // Cambia el turno al otro jugador
+                    nuevoEstado.tiraEn(i, j); // Realiza la jugada
+                    sucesores.add(nuevoEstado); // Agrega el nuevo estado a la lista de sucesores
+                }
+            }
+        }
         
         return sucesores;
     }
@@ -157,18 +167,28 @@ public class Gato {
      */
     boolean esSimétricoDiagonalInvertida(Gato otro) {
         
-        // TODO
-        
+        for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (tablero[i][j] != otro.tablero[j][i]) {
+                        return false;
+                    }
+                }
+            }
         return true;
+                
     }
 
     /**
      * Al reflejar el gato sobre la diagonal / son iguales (ie traspuesta)
      */
     boolean esSimétricoDiagonal(Gato otro) {
-        
-        // TODO
-        
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] != otro.tablero[2 - j][2 - i]) {
+                    return false;
+                }
+            }
+        }        
         return true;
     }
 
@@ -177,7 +197,13 @@ public class Gato {
      */
     boolean esSimétricoVerticalmente(Gato otro) {
         
-        // TODO
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] != otro.tablero[i][2 - j]) {
+                    return false;
+                }
+            }
+        }
         
         return true;
     }
@@ -185,10 +211,14 @@ public class Gato {
     /**
      * Al reflejar el otro gato sobre la horizontal son iguales
      */
-    boolean esSimétricoHorizontalmente(Gato otro) {
-        
-        // TODO
-        
+    boolean esSimétricoHorizontalmente(Gato otro) { 
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] != otro.tablero[2 - i][j]) {
+                    return false;
+                }
+            }
+        }    
         return true;
     }
 
@@ -196,9 +226,13 @@ public class Gato {
      * Rota el otro tablero 90Â° en la dirección de las manecillas del reloj.
      */
     boolean esSimétrico90(Gato otro) {
-        
-        // TODO
-        
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] != otro.tablero[j][2 - i]) {
+                    return false;
+                }
+            }
+        }        
         return true;
     }
 
@@ -207,8 +241,13 @@ public class Gato {
      */
     boolean esSimétrico180(Gato otro) {
         
-        // TODO
-        
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] != otro.tablero[2 - i][2 - j]) {
+                    return false;
+                }
+            }
+        }        
         return true;
     }
 
@@ -216,9 +255,13 @@ public class Gato {
      * Rota el otro tablero 270Â° en la dirección de las manecillas del reloj.
      */
     boolean esSimétrico270(Gato otro) {
-        
-        // TODO
-        
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] != otro.tablero[2 - j][i]) {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 
