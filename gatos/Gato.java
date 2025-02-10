@@ -1,6 +1,6 @@
 /*
  * No redistribuir.
- * Geronimo Soto Leslie - 320032848
+ * Gerónimo Soto Leslie - 320032848 
  */
 package gatos;
 
